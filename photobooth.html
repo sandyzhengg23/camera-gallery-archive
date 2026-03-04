@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photo Booth</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="galleries.html">Galleries</a>
+    <a href="photobooth.html">Photo Booth</a>
+    <a href="community.html">Community</a>
+  </nav>
+
+  <main class="page">
+    <h1 class="page-title">Photo Booth</h1>
+
+    <div class="booth-frame">
+      <video id="video" autoplay playsinline></video>
+      <canvas id="canvas"></canvas>
+    </div>
+
+    <div id="modeIdle" class="booth-controls">
+      <button id="startBtn">Start Camera</button>
+      <p class="booth-note">Your browser will ask to allow camera access.</p>
+    </div>
+
+    <div id="modeLive" class="booth-controls">
+      <button id="captureBtn">Capture</button>
+    </div>
+
+    <div id="modePreview" class="booth-controls">
+        <button id="retakeBtn">Retake</button>
+        <button id="saveBtn">Save</button>
+      
+        <input id="captionInput" class="caption-input" placeholder="Add a caption..." />
+        <button id="postBtn">Post</button>
+      
+        <p id="postStatus" class="booth-note"></p>
+      </div>
+  </main>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
+  
+    const firebaseConfig = {
+      apiKey: "AIzaSyBnusW_v8vcyBgh7J4_eR4eYb8Moe_KBCQ",
+      authDomain: "camera-archive-gallery.firebaseapp.com",
+      projectId: "camera-archive-gallery",
+      storageBucket: "camera-archive-gallery.firebasestorage.app",
+      messagingSenderId: "491791744745",
+      appId: "1:491791744745:web:f12c465ff4d1dc371cba78",
+      measurementId: "G-NMN8103E99"
+    };
+  
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+  
+    window.firebaseDB = db;
+    window.firebaseFns = {
+      collection,
+      addDoc,
+      serverTimestamp
+    };
+  </script>
+
+  <script src="js/photobooth.js"></script>
+</body>
+</html>

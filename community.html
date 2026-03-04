@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Community Gallery</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="galleries.html">Galleries</a>
+        <a href="photobooth.html">Photo Booth</a>
+        <a href="community.html">Community</a>
+    </nav>
+
+    <main>
+        <div id="photoGrid" class="photo-grid"></div>
+        <h1 class="page-title">Community Gallery</h1>
+
+        <p>Total Photos: <span id="totalPhotos">0</span></p>
+        <p>Last Updated: <span id="lastUpdated">--</span></p>
+
+        <div id="communityGrid" class="community-grid"></div>
+            
+        </div>
+    </main>
+   
+    <script type="module" src="js/firebase-init.js"></script>
+    <script type="module" src="js/community.js"></script>
+</body>
+</html>

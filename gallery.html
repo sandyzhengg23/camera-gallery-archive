@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Gallery</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="galleries.html">Galleries</a>
+    <a href="photobooth.html">Photo Booth</a>
+    <a href="community.html">Community</a>
+  </nav>
+
+  <main class="page">
+    <h1 class="page-title" id="galleryTitle">Gallery</h1>
+
+    <div class="photo-grid" id="photoGrid"></div>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const album = params.get("album") || "paris";
+  
+    const niceTitles = {
+      paris: "Paris",
+      china: "China",
+      concerts: "Concerts"
+    };
+  
+    document.title = niceTitles[album] || "Gallery";
+    document.getElementById("galleryTitle").textContent = niceTitles[album] || "Gallery";
+  
+    const grid = document.getElementById("photoGrid");
+    grid.innerHTML = "";
+  
+    const prefix = album === "concerts" ? "concert" : album;
+  
+    for (let i = 1; i <= 8; i++) {
+      const card = document.createElement("div");
+      card.className = "photo-card";
+  
+      const img = document.createElement("img");
+      img.src = `assets/${album}/${prefix}${i}.png`;
+      img.alt = `${album} ${i}`;
+  
+      img.onerror = () => console.log("Missing:", img.src);
+  
+      card.appendChild(img);
+      grid.appendChild(card);
+    }
+  </script>
+
+</body>
+</html>
