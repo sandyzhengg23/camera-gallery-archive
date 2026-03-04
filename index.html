@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Camera Project</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="galleries.html">Galleries</a>
+    <a href="photobooth.html">Photo Booth</a>
+    <a href="community.html">Community</a>
+  </nav>
+
+  <main class="landing">
+
+    <button class="community-btn" onclick="goToCommunity()">
+      Community Gallery
+    </button>
+
+    <div class="camera-wrapper">
+
+      <div class="camera-container">
+
+        <div class="heart heart-left">♡</div>
+        <div class="heart heart-top">♡</div>
+
+        <div class="camera-body">
+          <div class="camera-top-bar"></div>
+          <div class="camera-viewfinder"></div>
+
+          <button class="camera-lens" onclick="goToGalleries()" aria-label="Go to galleries">
+            <div class="lens-inner"></div>
+            <span class="lens-text">LENS</span>
+          </button>
+        </div>
+
+        <button class="flip-screen" onclick="goToBooth()" aria-label="Go to photo booth">
+          SCREEN
+        </button>
+
+      </div>
+
+      <p class="camera-instruction">
+        Click on the lens or screen to explore.
+      </p>
+
+    </div>
+
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
